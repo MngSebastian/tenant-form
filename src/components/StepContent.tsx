@@ -9,8 +9,14 @@ function StepContent() {
       {currentStep === 3 ? (
         <>
           {incomeOptions.map((option) => (
-            <div key={option}>
-              <input type="radio" name="income" value={option} checked={formData.income === option} />
+            <div key={option} className="flex items-center">
+              <input
+                type="radio"
+                name="income"
+                value={option}
+                checked={formData.income === option}
+                className="text-center w-10 h-10 mr-2"
+              />
               <label>{option}</label>
             </div>
           ))}
@@ -24,6 +30,9 @@ function StepContent() {
             type={currentStep === 1 ? "email" : currentStep === 2 ? "tel" : "text"}
             placeholder={`Enter your ${steps[currentStep].name.toLowerCase()}`}
             required
+            className={`mb-2 p-2 w-full rounded-lg shadow-[0_0_10px_rgba(100,100,100,0,5)] ${
+              errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""
+            }`}
           />
           {errors[steps[currentStep].name.toLowerCase()] && <p>{errors[steps[currentStep].name.toLowerCase()]}</p>}
         </>
