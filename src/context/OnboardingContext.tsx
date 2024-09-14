@@ -11,11 +11,56 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", income: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
+    }
+  };
+
+  const validateStep = () => {
+    const currentField = steps[currentStep].name.toLowerCase();
+    const validationFunction = steps[currentStep].validation;
+    if (validationFunction) {
+      const error = validationFunction(formData[currentField as keyof typeof formData]);
+      setErrors({ ...errors, [currentField]: error });
+      return !error;
+    }
+    return true;
+  };
+
+  const handleIncomeOptionChange = (value: string) => {
+    setFormData({ ...formData, income: value });
+  };
+  const handleNext = () => {
+    if (validateStep() && currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+  const handlePrevious = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
 
   return (
     <OnboardingContext.Provider
-      value={{ currentStep, formData, isSubmitted, isAnimating, errors, steps, incomeOptions }}
+      value={{
+        currentStep,
+        formData,
+        isSubmitted,
+        isAnimating,
+        errors,
+        steps,
+        incomeOptions,
+        handleInputChange,
+        handleIncomeOptionChange,
+        handleNext,
+        handlePrevious,
+      }}
     >
       {children}
     </OnboardingContext.Provider>

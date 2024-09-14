@@ -10,6 +10,10 @@ type OnboardingContextType = {
   incomeOptions: string[];
   isSubmitted: boolean;
   isAnimating: boolean;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleIncomeOptionChange: (value: string) => void;
+  handleNext: () => void;
+  handlePrevious: () => void;
 };
 
 export default OnboardingContextType;

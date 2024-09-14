@@ -2,7 +2,7 @@ import React from "react";
 import { useOnboarding } from "../context/OnboardingContext";
 
 function StepContent() {
-  const { currentStep, steps, formData, errors, incomeOptions } = useOnboarding();
+  const { currentStep, steps, formData, errors, incomeOptions, handleInputChange } = useOnboarding();
   return (
     <div className="space-y-2">
       {/* strictly equals 3 is not the best solution here incase something else is added and order changes */}
@@ -30,10 +30,12 @@ function StepContent() {
             type={currentStep === 1 ? "email" : currentStep === 2 ? "tel" : "text"}
             placeholder={`Enter your ${steps[currentStep].name.toLowerCase()}`}
             required
+            onChange={handleInputChange}
             className={`mb-2 p-2 w-full rounded-lg shadow-[0_0_10px_rgba(100,100,100,0.5)] ${
               errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""
             }`}
           />
+
           {errors[steps[currentStep].name.toLowerCase()] && <p>{errors[steps[currentStep].name.toLowerCase()]}</p>}
         </>
       )}
