@@ -1,5 +1,9 @@
 import React from "react";
 import { useOnboarding } from "../context/OnboardingContext";
+import StepContent from "./StepContent";
+import NavigationButtons from "./NavigationButtons";
+import Summary from "./Summary";
+import Success from "./Success";
 
 function MainContent() {
   const { currentStep, steps, isSubmitted, isAnimating } = useOnboarding();
