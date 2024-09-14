@@ -2,7 +2,8 @@ import React from "react";
 import { useOnboarding } from "../context/OnboardingContext";
 
 function StepContent() {
-  const { currentStep, steps, formData, errors, incomeOptions, handleInputChange } = useOnboarding();
+  const { currentStep, steps, formData, errors, incomeOptions, handleInputChange, handleIncomeOptionChange } =
+    useOnboarding();
   return (
     <div className="space-y-2">
       {/* strictly equals 3 is not the best solution here incase something else is added and order changes */}
@@ -15,6 +16,7 @@ function StepContent() {
                 name="income"
                 value={option}
                 checked={formData.income === option}
+                onChange={() => handleIncomeOptionChange(option)}
                 className="text-center w-10 h-10 mr-2"
               />
               <label>{option}</label>
