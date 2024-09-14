@@ -15,7 +15,8 @@ function MainContent() {
           <div
             className={`transition-all duration-300 transform ${
               isAnimating ? "-translate-x-full opacity-0" : "-translate-x-0 opacity-100"
-            }`}
+            }
+            ${currentStep === steps.length - 1 ? "shadow-[0_0_10px_rgba(200,200,200,1)] rounded-lg p-4" : ""}`}
           >
             <h1 className="text-3xl font-bol mb-3">{steps[currentStep].question}</h1>
             {currentStep < steps.length - 1 ? <StepContent /> : <Summary />}
