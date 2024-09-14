@@ -15,7 +15,7 @@ function MainContent() {
           <div className="border-2 border-red-500">
             <h1 className="text-3xl font-bol mb-3">{steps[currentStep].question}</h1>
             {currentStep < steps.length - 1 ? <StepContent /> : <Summary />}
-            {/* add navigation component */}
+            <NavigationButtons />
           </div>
         ) : (
           // if isSubmited, display Succes component.
