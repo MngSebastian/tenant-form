@@ -32,17 +32,28 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     return true;
   };
 
+  const goToStep = (stepIndex: number) => {
+    if (stepIndex >= 0 && stepIndex < steps.length) {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentStep(stepIndex);
+        // add navigate when adding routes
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
+
   const handleIncomeOptionChange = (value: string) => {
     setFormData({ ...formData, income: value });
   };
   const handleNext = () => {
     if (validateStep() && currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
+      goToStep(currentStep + 1);
     }
   };
   const handlePrevious = () => {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+      goToStep(currentStep - 1);
     }
   };
 
@@ -56,6 +67,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         errors,
         steps,
         incomeOptions,
+        goToStep,
         handleInputChange,
         handleIncomeOptionChange,
         handleNext,

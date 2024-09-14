@@ -14,6 +14,7 @@ type OnboardingContextType = {
   handleIncomeOptionChange: (value: string) => void;
   handleNext: () => void;
   handlePrevious: () => void;
+  goToStep: (value: number) => void;
 };
 
 export default OnboardingContextType;
