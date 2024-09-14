@@ -1,7 +1,15 @@
 import React from "react";
+import { useOnboarding } from "../context/OnboardingContext";
 
 function NavigationButtons() {
-  return <div>NavigationButtons</div>;
+  const { currentStep, steps } = useOnboarding();
+
+  return (
+    <div>
+      <button>Back</button>
+      <button>Next</button>
+    </div>
+  );
 }
 
 export default NavigationButtons;
