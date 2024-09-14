@@ -14,7 +14,7 @@ function MainContent() {
           // add animation to this div later
           <div className="border-2 border-red-500">
             <h1 className="text-3xl font-bol mb-3">{steps[currentStep].question}</h1>
-            {/* if current step is smaller than steps.length-1 add stepcontent componenet otherwise display summary */}
+            {currentStep < steps.length - 1 ? <StepContent /> : <Summary />}
             {/* add navigation component */}
           </div>
         ) : (
