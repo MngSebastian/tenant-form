@@ -32,16 +32,17 @@ function StepContent() {
             type={currentStep === 1 ? "email" : currentStep === 2 ? "tel" : "text"}
             placeholder={`Enter your ${steps[currentStep].name.toLowerCase()}`}
             value={formData[steps[currentStep].name.toLowerCase() as keyof typeof formData]}
-            required
             onChange={handleInputChange}
             className={`mb-2 p-2 w-full rounded-lg shadow-[0_0_10px_rgba(100,100,100,0.5)] ${
               errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""
             }`}
+            required
           />
-
-          {errors[steps[currentStep].name.toLowerCase()] && (
-            <p className="text-red-500 ml-1">{errors[steps[currentStep].name.toLowerCase()]}</p>
-          )}
+          <div className="h-5">
+            {errors[steps[currentStep].name.toLowerCase()] && (
+              <p className="text-red-500 ml-1">{errors[steps[currentStep].name.toLowerCase()]}</p>
+            )}
+          </div>
         </>
       )}
     </div>
