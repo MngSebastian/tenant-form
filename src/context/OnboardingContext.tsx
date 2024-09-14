@@ -57,6 +57,8 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     }
   };
 
+  const handleSubmit = () => {};
+
   return (
     <OnboardingContext.Provider
       value={{
@@ -72,6 +74,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         handleIncomeOptionChange,
         handleNext,
         handlePrevious,
+        handleSubmit,
       }}
     >
       {children}
