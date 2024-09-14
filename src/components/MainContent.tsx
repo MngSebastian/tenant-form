@@ -12,7 +12,11 @@ function MainContent() {
       <div className="max-w-md mx-auto">
         {!isSubmitted ? (
           // add animation to this div later
-          <div className={`transition-all duration-300 transform `}>
+          <div
+            className={`transition-all duration-300 transform ${
+              isAnimating ? "-translate-x-full opacity-0" : "-translate-x-0 opacity-100"
+            }`}
+          >
             <h1 className="text-3xl font-bol mb-3">{steps[currentStep].question}</h1>
             {currentStep < steps.length - 1 ? <StepContent /> : <Summary />}
             <NavigationButtons />
