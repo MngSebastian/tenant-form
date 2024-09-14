@@ -2,7 +2,7 @@ import React from "react";
 import { useOnboarding } from "../context/OnboardingContext";
 
 function NavigationButtons() {
-  const { currentStep, steps, handlePrevious, handleNext } = useOnboarding();
+  const { currentStep, steps, handlePrevious, handleNext, handleSubmit } = useOnboarding();
 
   return (
     <div className="flex justify-between mt-6">
@@ -14,11 +14,11 @@ function NavigationButtons() {
         Back
       </button>
       <button
-        onClick={handleNext}
+        onClick={currentStep === steps.length - 1 ? handleSubmit : handleNext}
         className="px-4 py-2 bg-blue-500 text-white transition duration-300 rounded-md
        hover:bg-blue-800"
       >
-        Next
+        {currentStep === steps.length - 1 ? "Submit" : "Next"}
       </button>
     </div>
   );
