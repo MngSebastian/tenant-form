@@ -13,7 +13,7 @@ function MainContent() {
         {!isSubmitted ? (
           // add animation to this div later
           <div
-            className={`transition-all h-[300px] duration-300 transform ${
+            className={`transition-all duration-300 transform ${
               isAnimating ? "-translate-x-full opacity-0" : "-translate-x-0 opacity-100"
             }
             ${currentStep === steps.length - 1 ? "shadow-[0_0_10px_rgba(200,200,200,1)] rounded-lg p-4" : ""}`}

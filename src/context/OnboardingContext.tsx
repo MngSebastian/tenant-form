@@ -11,6 +11,8 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", income: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,6 +61,9 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
 
   const handleSubmit = () => {};
 
+  const handleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
     <OnboardingContext.Provider
       value={{
@@ -66,6 +71,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         formData,
         isSubmitted,
         isAnimating,
+        isDarkMode,
         errors,
         steps,
         incomeOptions,
@@ -75,6 +81,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         handleNext,
         handlePrevious,
         handleSubmit,
+        handleDarkMode,
       }}
     >
       {children}
