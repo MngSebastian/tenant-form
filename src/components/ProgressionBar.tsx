@@ -7,7 +7,9 @@ function ProgressionBar() {
     <div className={`md:w-64 h-full md:h-full ${isDarkMode ? "bg-gray-900" : "bg-white"}`}>
       <div className="p-0 md:p-6 w-full md:h-[800px]">
         <h2
-          className={`text-lg md:text-xl pl-12 md:pl-0 font-semibold mb-6 ${isDarkMode ? "text-white" : "text-black"}`}
+          className={`text-lg md:text-xl pt-4 pl-12 md:pl-0 font-semibold mb-6 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
         >
           Onboarding Progress
         </h2>
