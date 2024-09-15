@@ -64,6 +64,14 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   const handleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  const handleClearInput = () => {
+    const currentField = steps[currentStep].name.toLowerCase();
+    setFormData({
+      ...formData,
+      [currentField]: "",
+    });
+  };
   return (
     <OnboardingContext.Provider
       value={{
@@ -77,6 +85,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         incomeOptions,
         goToStep,
         handleInputChange,
+        handleClearInput,
         handleIncomeOptionChange,
         handleNext,
         handlePrevious,

@@ -14,6 +14,7 @@ type OnboardingContextType = {
   handleDarkMode: () => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleIncomeOptionChange: (value: string) => void;
+  handleClearInput: () => void;
   handleNext: () => void;
   handlePrevious: () => void;
   handleSubmit: () => void;

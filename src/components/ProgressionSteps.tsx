@@ -13,8 +13,8 @@ function ProgressionSteps() {
               className={`flex items-center justify-center rounded-full w-12 h-12 ${
                 index === currentStep && !isSubmitted
                   ? "bg-blue-500 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]"
-                  : "shadow-[0_0_10px_rgba(79,70,229,1)] border border-gray-300 bg-white text-gray-600"
-              } ${isDarkMode ? "text-gray-200 border-indigo-600 bg-gray-700" : ""}
+                  : "shadow-[0_0_10px_rgba(200,200,200,1)] border border-gray-300 bg-white text-gray-600"
+              } ${isDarkMode ? "text-gray-200 border-indigo-600 shadow-[0_0_10px_rgba(79,70,229,1)] bg-gray-700" : ""}
                 ${isDarkMode && index === currentStep && !isSubmitted ? "bg-indigo-800" : ""}
               `}
             >
