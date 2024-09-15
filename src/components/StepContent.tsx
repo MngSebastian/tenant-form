@@ -12,6 +12,7 @@ function StepContent() {
     handleInputChange,
     handleIncomeOptionChange,
   } = useOnboarding();
+
   return (
     <div className="space-y-2">
       {/* strictly equals 3 is not the best solution here incase something else is added and order changes */}
@@ -43,7 +44,7 @@ function StepContent() {
             onChange={handleInputChange}
             className={`mb-2 p-2 w-full rounded-lg  ${
               isDarkMode
-                ? "bg-gray-900 shadow-[0_0_10px_rgba(130,130,130,0.5)] text-gray-200"
+                ? `bg-gray-900  text-gray-200 shadow-[0_0_10px_rgba(130,130,130,0.5)]`
                 : "bg-white shadow-[0_0_10px_rgba(100,100,100,0.5)]"
             } ${errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""}`}
             autoComplete="off"

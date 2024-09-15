@@ -5,7 +5,7 @@ import { useOnboarding } from "../context/OnboardingContext";
 function NavBar() {
   const { isDarkMode, handleDarkMode } = useOnboarding();
   return (
-    <div className={`h-16 w-full ${isDarkMode ? "bg-gray-900" : "bg-white"}`}>
+    <div className={`h-16 w-full ${isDarkMode ? "bg-gray-900" : "bg-white"} border-b-2`}>
       <div className="flex h-full justify-between items-center px-8">
         <p className={`${isDarkMode ? "text-white" : ""}`}>Buena</p>
 
