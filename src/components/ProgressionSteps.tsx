@@ -22,7 +22,7 @@ function ProgressionSteps() {
                   ? "bg-gray-700 text-gray-200 border-indigo-600"
                   : "bg-white text-gray-600 border-gray-300"
               }
-              ${isDarkMode ? "shadow-[0_0_10px_#6969f4]" : "shadow-[0_0_10px_#c8c8c8]"}
+              ${isDarkMode ? "shadow-[0_0_6px_#6969f4]" : "shadow-[0_0_10px_#c8c8c8]"}
               border shadow-lg
             `}
             >
