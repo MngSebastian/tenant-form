@@ -46,6 +46,7 @@ function StepContent() {
                 ? "bg-gray-900 shadow-[0_0_10px_#96b1ef] text-gray-200"
                 : "bg-white shadow-[0_0_10px_rgba(100,100,100,0.5)]"
             } ${errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""}`}
+            autoComplete="off"
             required
           />
           <div className="h-5">
