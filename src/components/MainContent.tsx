@@ -7,20 +7,7 @@ import Summary from "./Summary";
 import Success from "./Success";
 
 function MainContent() {
-  const { currentStep, steps, isSubmitted, isAnimating, isDarkMode, goToStep } = useOnboarding();
-  // const { step } = useParams();
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const stepIndex = steps.findIndex((s) => s.name.toLowerCase() === step?.toLowerCase());
-
-  //   if (stepIndex === -1) {
-  //     // If the step in the URL is invalid, redirect to the first step
-  //     navigate(`/form/${steps[0].name.toLowerCase()}`);
-  //   } else if (stepIndex !== currentStep) {
-  //     goToStep(stepIndex);
-  //   }
-  // }, [step, steps, currentStep, goToStep, navigate]);
+  const { currentStep, steps, isSubmitted, isAnimating, isDarkMode } = useOnboarding();
 
   return (
     <div className="flex-1 p-10">

@@ -17,7 +17,10 @@ type OnboardingContextType = {
   handleClearInput: () => void;
   handleNext: () => void;
   handlePrevious: () => void;
+  handleReDoForm: () => void;
+
   handleSubmit: () => void;
+
   goToStep: (value: number) => void;
 };
 

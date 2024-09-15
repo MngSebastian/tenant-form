@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import steps from "../utils/steps";
 import OnboardingContextType from "../utils/OnboardingContextType";
 import { useLocation, useNavigate } from "react-router-dom";
+console.log(steps); // Add this to ensure steps is defined
 
 const incomeOptions = ["0-1.000", "1.000-2.000", "2.000-3.000", "3.000-4.000", ">4.000"];
 
@@ -100,7 +101,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       navigate("/form/success");
       localStorage.removeItem(STORAGE_KEY);
       setFormData({ name: "", email: "", phone: "", income: "" });
-      setCurrentStep(0);
+      // setCurrentStep(0);
     } else {
       // If validation fails, navigate to first step with an error
       const firstErrorStep = steps.findIndex(
@@ -123,6 +124,12 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       [currentField]: "",
     });
   };
+
+  const handleReDoForm = useCallback(() => {
+    setCurrentStep(0);
+    setIsSubmitted(false);
+    navigate("/", { replace: true });
+  }, [navigate]);
 
   useEffect(() => {
     // Save to local storage.
@@ -156,6 +163,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         handleNext,
         handlePrevious,
         handleSubmit,
+        handleReDoForm,
         handleDarkMode,
       }}
     >

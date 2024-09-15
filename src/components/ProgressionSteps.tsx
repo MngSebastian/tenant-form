@@ -52,6 +52,4 @@ function ProgressionSteps() {
     </>
   );
 }
-// ${isDarkMode ? "text-gray-200 border-indigo-600 shadow-[0_0_10px_rgba(79,70,229,1)] bg-gray-400" : ""}
-// ${isDarkMode && index === currentStep && !isSubmitted ? "bg-indigo-800" : ""}
 export default ProgressionSteps;
