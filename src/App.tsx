@@ -3,6 +3,7 @@ import "./App.css";
 import ProgressionBar from "./components/ProgressionBar";
 import MainContent from "./components/MainContent";
 import NavBar from "./components/NavBar";
+import { useOnboarding } from "./context/OnboardingContext";
 function App() {
   return (
     <div className={`flex-col md:fslex w-screen h-screen bg-gray-100`}>
