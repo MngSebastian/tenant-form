@@ -2,8 +2,16 @@ import React from "react";
 import { useOnboarding } from "../context/OnboardingContext";
 
 function StepContent() {
-  const { currentStep, steps, formData, errors, incomeOptions, handleInputChange, handleIncomeOptionChange } =
-    useOnboarding();
+  const {
+    currentStep,
+    steps,
+    formData,
+    errors,
+    incomeOptions,
+    isDarkMode,
+    handleInputChange,
+    handleIncomeOptionChange,
+  } = useOnboarding();
   return (
     <div className="space-y-2">
       {/* strictly equals 3 is not the best solution here incase something else is added and order changes */}
@@ -33,9 +41,11 @@ function StepContent() {
             placeholder={`Enter your ${steps[currentStep].name.toLowerCase()}`}
             value={formData[steps[currentStep].name.toLowerCase() as keyof typeof formData]}
             onChange={handleInputChange}
-            className={`mb-2 p-2 w-full rounded-lg shadow-[0_0_10px_rgba(100,100,100,0.5)] ${
-              errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""
-            }`}
+            className={`mb-2 p-2 w-full rounded-lg  ${
+              isDarkMode
+                ? "bg-gray-900 shadow-[0_0_10px_#96b1ef] text-gray-200"
+                : "bg-white shadow-[0_0_10px_rgba(100,100,100,0.5)]"
+            } ${errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""}`}
             required
           />
           <div className="h-5">
