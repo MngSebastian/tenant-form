@@ -50,7 +50,7 @@ function StepContent() {
                   ? `bg-gray-900  text-gray-200 shadow-[0_0_10px_rgba(130,130,130,0.5)]`
                   : "bg-white shadow-[0_0_10px_rgba(100,100,100,0.5)]"
               } ${errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""}`}
-              autoComplete="off"
+              autoComplete="on"
               required
             />
             {formData[steps[currentStep].name.toLowerCase() as keyof typeof formData] && (

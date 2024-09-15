@@ -25,8 +25,7 @@ function MainContent() {
             <NavigationButtons />
           </div>
         ) : (
-          // if isSubmited, display Succes component.
-          <p>a</p>
+          <Success />
         )}
       </div>
     </div>
