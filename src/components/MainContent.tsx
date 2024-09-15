@@ -6,9 +6,9 @@ import Summary from "./Summary";
 import Success from "./Success";
 
 function MainContent() {
-  const { currentStep, steps, isSubmitted, isAnimating } = useOnboarding();
+  const { currentStep, steps, isSubmitted, isAnimating, isDarkMode } = useOnboarding();
   return (
-    <div className="flex-1 p-10">
+    <div className={`flex-1 bg-rsed-500 p-10`}>
       <div className="max-w-md mx-auto">
         {!isSubmitted ? (
           // add animation to this div later
