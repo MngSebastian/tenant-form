@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import steps from "../utils/steps";
 import OnboardingContextType from "../utils/OnboardingContextType";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -30,6 +30,22 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   const navigate = useNavigate();
   const location = useLocation();
 
+  const validateAllSteps = useCallback(() => {
+    let isValid = true;
+    const newErrors: { [key: string]: string } = {};
+    steps.forEach((step, index) => {
+      const field = step.name.toLowerCase();
+      if (step.validation) {
+        const error = step.validation(formData[field as keyof typeof formData]);
+        if (error) {
+          isValid = false;
+          newErrors[field] = error;
+        }
+      }
+    });
+    setErrors(newErrors);
+    return isValid;
+  }, [formData]);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
