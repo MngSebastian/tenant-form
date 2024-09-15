@@ -27,7 +27,7 @@ function StepContent() {
                 onChange={() => handleIncomeOptionChange(option)}
                 className="text-center w-10 h-10 mr-2"
               />
-              <label>{option}</label>
+              <label className={`${isDarkMode ? "text-gray-300" : "text-balck"}`}>{option}</label>
             </div>
           ))}
         </>
