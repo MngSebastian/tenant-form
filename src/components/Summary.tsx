@@ -2,13 +2,15 @@ import React from "react";
 import { useOnboarding } from "../context/OnboardingContext";
 
 function Summary() {
-  const { formData } = useOnboarding();
+  const { formData, isDarkMode } = useOnboarding();
   return (
     <div className="mb-6 space-y-2">
       {Object.entries(formData).map(([key, value]) => (
-        <div key={key} className="flex gap-2">
-          <span className="font-semibold capitalize w-16">{key}:</span>
-          <span>{value}</span>
+        <div key={key} className="flex gap-3">
+          <span className={`${isDarkMode ? "text-gray-400" : "text-black"} font-semibold w-16 text-lg capitalize`}>
+            {key}:
+          </span>
+          <span className={`${isDarkMode ? "text-gray-200" : "text-black"} text-lg`}>{value}</span>
         </div>
       ))}
     </div>
