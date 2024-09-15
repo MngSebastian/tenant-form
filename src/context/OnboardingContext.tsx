@@ -1,19 +1,34 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import steps from "../utils/steps";
 import OnboardingContextType from "../utils/OnboardingContextType";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const incomeOptions = ["0-1.000", "1.000-2.000", "2.000-3.000", "3.000-4.000", ">4.000"];
 
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined);
+const STORAGE_KEY = "onboardingData";
 
 export function OnboardingProvider({ children }: { children: React.ReactNode }) {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", income: "" });
+  const [currentStep, setCurrentStep] = useState(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved).currentStep : 0;
+  });
+
+  const [formData, setFormData] = useState(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved).formData : { name: "", email: "", phone: "", income: "" };
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved).isDarkMode : false;
+  });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,7 +54,6 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       setIsAnimating(true);
       setTimeout(() => {
         setCurrentStep(stepIndex);
-        // add navigate when adding routes
         setIsAnimating(false);
       }, 300);
     }
@@ -72,6 +86,12 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       [currentField]: "",
     });
   };
+
+  useEffect(() => {
+    if (!isSubmitted) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ currentStep, formData, isDarkMode }));
+    }
+  }, [currentStep, formData, isSubmitted, isDarkMode]);
   return (
     <OnboardingContext.Provider
       value={{
