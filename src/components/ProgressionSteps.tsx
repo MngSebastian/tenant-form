@@ -8,7 +8,7 @@ function ProgressionSteps() {
     <>
       {steps.map((step, index) => (
         <div key={step.name} className="flex items-center mb-8 relative">
-          <div className="w-12 h-12 flex items-center justify-center">
+          <div className="w-12 h-12  flex items-center justify-center">
             <div
               className={`flex items-center justify-center rounded-full w-12 h-12 ${
                 index === currentStep && !isSubmitted
