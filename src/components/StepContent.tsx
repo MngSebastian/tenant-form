@@ -43,7 +43,7 @@ function StepContent() {
             onChange={handleInputChange}
             className={`mb-2 p-2 w-full rounded-lg  ${
               isDarkMode
-                ? "bg-gray-900 shadow-[0_0_10px_#96b1ef] text-gray-200"
+                ? "bg-gray-900 shadow-[0_0_10px_rgba(130,130,130,0.5)] text-gray-200"
                 : "bg-white shadow-[0_0_10px_rgba(100,100,100,0.5)]"
             } ${errors[steps[currentStep].name.toLowerCase()] ? "border-red-500" : ""}`}
             autoComplete="off"

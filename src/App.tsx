@@ -7,9 +7,9 @@ import { useOnboarding } from "./context/OnboardingContext";
 function App() {
   const { isDarkMode } = useOnboarding();
   return (
-    <div className={`flex-scol w-screen h-screen ${isDarkMode ? "bg-slate-800" : "bg-gray-100"}`}>
+    <div className={`flex flex-col w-screen h-screen ${isDarkMode ? "bg-slate-800" : "bg-gray-100"}`}>
       <NavBar />
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-grow md:flex-row">
         <ProgressionBar />
         <MainContent />
       </div>
