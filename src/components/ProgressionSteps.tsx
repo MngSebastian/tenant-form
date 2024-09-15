@@ -34,7 +34,7 @@ function ProgressionSteps() {
             </div>
           </div>
           <span
-            className={`hidden md:inline ml-3 ${isDarkMode ? "text-white" : ""}
+            className={`hidden md:inline ml-3
             ${
               index === currentStep && !isSubmitted
                 ? isDarkMode

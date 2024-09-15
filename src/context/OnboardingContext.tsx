@@ -2,7 +2,6 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import steps from "../utils/steps";
 import OnboardingContextType from "../utils/OnboardingContextType";
 import { useLocation, useNavigate } from "react-router-dom";
-console.log(steps); // Add this to ensure steps is defined
 
 const incomeOptions = ["0-1.000", "1.000-2.000", "2.000-3.000", "3.000-4.000", ">4.000"];
 
