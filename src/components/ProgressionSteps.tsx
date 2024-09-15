@@ -27,7 +27,7 @@ function ProgressionSteps() {
             `}
             >
               {index < currentStep || isSubmitted ? (
-                <CircleCheck className={`w-8 h-8 ${isDarkMode ? "text-green-500" : "text-green-500"}`} />
+                <CircleCheck className={`w-8 h-8 ${isDarkMode ? "text-green-600" : "text-green-500"}`} />
               ) : (
                 <span>{index + 1}</span>
               )}

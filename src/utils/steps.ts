@@ -17,6 +17,7 @@ const steps = [
   {
     name: "Income",
     question: "What's your annual income?",
+    validation: (value: string) => (value ? "" : "Please select income range."),
   },
   { name: "Summary", question: "Please review your information:" },
 ];

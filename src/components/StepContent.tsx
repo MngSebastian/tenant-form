@@ -62,13 +62,13 @@ function StepContent() {
               />
             )}
           </div>
-          <div className="h-5">
-            {errors[steps[currentStep].name.toLowerCase()] && (
-              <p className="text-red-500 ml-1">{errors[steps[currentStep].name.toLowerCase()]}</p>
-            )}
-          </div>
         </>
       )}
+      <div className="h-5">
+        {errors[steps[currentStep].name.toLowerCase()] && (
+          <p className="text-red-500 ml-1">{errors[steps[currentStep].name.toLowerCase()]}</p>
+        )}
+      </div>
     </div>
   );
 }
