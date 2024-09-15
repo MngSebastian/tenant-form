@@ -9,8 +9,17 @@ function NavBar() {
       <div className="flex h-full justify-between items-center px-8">
         <p className={`${isDarkMode ? "text-white" : ""}`}>Buena</p>
 
-        <button onClick={handleDarkMode}>
-          {isDarkMode ? <Sun className={`${isDarkMode ? "text-yellow-600" : ""}`} /> : <Moon />}
+        <button
+          onClick={handleDarkMode}
+          className={`flex items-center justify-center border ${
+            isDarkMode ? "border-gray-300" : "border-gray-800"
+          } rounded-full w-10 h-10`}
+        >
+          {isDarkMode ? (
+            <Sun className="text-gray-300 hover:text-yellow-600" />
+          ) : (
+            <Moon className="text-blue-800 hover:text-blue-500" />
+          )}
         </button>
       </div>
     </div>
