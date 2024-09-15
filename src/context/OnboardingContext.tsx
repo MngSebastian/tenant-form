@@ -33,6 +33,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   const validateAllSteps = useCallback(() => {
     let isValid = true;
     const newErrors: { [key: string]: string } = {};
+
     steps.forEach((step, index) => {
       const field = step.name.toLowerCase();
       if (step.validation) {
@@ -43,15 +44,21 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         }
       }
     });
+
     setErrors(newErrors);
     return isValid;
   }, [formData]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
+  };
+
+  const handleIncomeOptionChange = (value: string) => {
+    setFormData({ ...formData, income: value });
   };
 
   const validateStep = () => {
@@ -70,14 +77,12 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       setIsAnimating(true);
       setTimeout(() => {
         setCurrentStep(stepIndex);
+        navigate(`/form/${steps[stepIndex].name.toLowerCase()}`);
         setIsAnimating(false);
       }, 300);
     }
   };
 
-  const handleIncomeOptionChange = (value: string) => {
-    setFormData({ ...formData, income: value });
-  };
   const handleNext = () => {
     if (validateStep() && currentStep < steps.length - 1) {
       goToStep(currentStep + 1);
@@ -89,7 +94,23 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     }
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = useCallback(() => {
+    if (validateAllSteps()) {
+      setIsSubmitted(true);
+      navigate("/form/success");
+      localStorage.removeItem(STORAGE_KEY);
+      setFormData({ name: "", email: "", phone: "", income: "" });
+      setCurrentStep(0);
+    } else {
+      // If validation fails, navigate to first step with an error
+      const firstErrorStep = steps.findIndex(
+        (step) => errors[step.name.toLowerCase()] !== undefined && errors[step.name.toLowerCase()] !== ""
+      );
+      if (firstErrorStep !== -1) {
+        goToStep(firstErrorStep);
+      }
+    }
+  }, [navigate, validateAllSteps, errors, goToStep]);
 
   const handleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -104,10 +125,19 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   };
 
   useEffect(() => {
+    // Save to local storage.
     if (!isSubmitted) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ currentStep, formData, isDarkMode }));
     }
-  }, [currentStep, formData, isSubmitted, isDarkMode]);
+
+    // handle URL changes
+    const path = location.pathname.split("/").pop()?.toLowerCase();
+    const stepIndex = steps.findIndex((step) => step.name.toLowerCase() === path);
+    if (stepIndex !== -1 && stepIndex !== currentStep) {
+      setCurrentStep(stepIndex);
+    }
+  }, [currentStep, formData, location, isSubmitted, isDarkMode]);
+
   return (
     <OnboardingContext.Provider
       value={{
