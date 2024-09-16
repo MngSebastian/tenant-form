@@ -2,15 +2,19 @@
 This is a tenant onboarding form built for Buena as part of the hiring process.
 
 How to run?
-Install dependencies: `npm install` and run the app: `npm run start` or go to: `https://tenant-form-ccvrn9dpa-mngsebastians-projects.vercel.app/form/name`
+Install dependencies: `npm install` and run the app: `npm run start` or go to: [`https://tenant-form-ccvrn9dpa-mngsebastians-projects.vercel.app/form/name`](https://tenant-form-rho.vercel.app/form/name)
 
 ## Technologies Used
 
-Typescript,
-React,
-Tailwindcss,
-Prettier for formatting,
-Lucide React for icons,
+Typescript  
+
+React  
+
+Tailwindcss  
+
+Prettier for formatting  
+
+Lucide React for icons
 
 
 
@@ -45,4 +49,13 @@ Lucide React for icons,
 
 ### `What I would have liked to add`
 
-ck out the [React documentation](https://reactjs.org/).
+I would have liked to fix all the issues mention above.  
+
+I would have liked to add `Tests` but I have to do another case study for another company and I was limited by time.  
+
+Better Validation, as already mentioned, the validation is very basic and ideally it would need more.  
+
+I would have liked to integrate Buena's design identity. I went to your website and I saw a modern, sleek yet creative design, initially, I was going to build something to fit right in with Buena's website/design but I decided to let my creativity work and see where it takes me.  
+
+
+
