@@ -39,7 +39,6 @@ Lucide React for icons
 
 ### `Issues`
 
-**Submit** -- As i already noted, if a step of the form has been skipped via `URL`, submit will send you back to the input that has not been filled but only on second click.  
 
 **Dark Mode Input Autocomple** - When using `autocomplete="on" on a form, the  browser has some predefined styles to let you know that data has been filled, issue is that its turning the input background color to white on darkmode.`  
 
