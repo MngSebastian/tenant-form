@@ -17,7 +17,7 @@ function StepContent() {
 
   return (
     <div className="space-y-2">
-      {/* strictly equals 3 is not the best solution here incase something else is added and order changes */}
+      {/* strictly equals 3 is not the best solution here incase something else is added or order steps changes */}
       {currentStep === 3 ? (
         <>
           {incomeOptions.map((option) => (

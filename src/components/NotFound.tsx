@@ -18,7 +18,7 @@ function NotFound() {
             : "bg-blue-600 text-white hover:bg-blue-700"
         }`}
       >
-        Go back to the homepage
+        Go back to the homepage.
       </Link>
     </div>
   );
