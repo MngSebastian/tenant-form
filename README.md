@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Buena tenant onboarding flow.
+This is a tenant onboarding form built for Buena as part of the hiring process.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How to run?
+Install dependencies: `npm install` and run the app: `npm run start` or go to: `https://tenant-form-ccvrn9dpa-mngsebastians-projects.vercel.app/form/name`
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+Typescript,
+React,
+Tailwindcss,
+Prettier for formatting,
+Lucide React for icons,
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+
+### `Features`
+
+**Dark mode** - this was unnecessary but I wanted to add it. There is a better way to do it in `tailwind.config.js` but it was a spontaneous decision and I went with a less cleaner approach.
+**LocalStorage** - Form data and DarkMode are saved and do not get lost on refresh.
+**Validation** - As can be seen here: `validation: (value: string) => (value.length >= 2 ? "" : "Name must be at least 2 characters long.")` validation is nowhere near robust enough, it's basic, and for an app or component in production, it would have to be more complex and cover more cases.
+**Routing** - you can go to any part of the form via url `/form/email`.
+**All steps validation** - If you went straight to `/form/email` and continued to submit, you will be taken back to the first field that has a validation error and all others will be saved, problem is in this case submit must be clicked twice to work :(. I did not have time to look into it.
+**Input fields Clear Icon** - Every Input field renders an `x` icon to clear the field when text has been entered.
+**Mobile Responsive** - Looks good on mobile but there is a bug that makes you have to scroll for no reason.
+
+### `Issues`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `What I would have liked to add`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ck out the [React documentation](https://reactjs.org/).
