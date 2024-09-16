@@ -72,16 +72,19 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     return true;
   };
 
-  const goToStep = (stepIndex: number) => {
-    if (stepIndex >= 0 && stepIndex < steps.length) {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentStep(stepIndex);
-        navigate(`/form/${steps[stepIndex].name.toLowerCase()}`);
-        setIsAnimating(false);
-      }, 300);
-    }
-  };
+  const goToStep = useCallback(
+    (stepIndex: number) => {
+      if (stepIndex >= 0 && stepIndex < steps.length) {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setCurrentStep(stepIndex);
+          navigate(`/form/${steps[stepIndex].name.toLowerCase()}`);
+          setIsAnimating(false);
+        }, 300);
+      }
+    },
+    [navigate]
+  );
 
   const handleNext = () => {
     if (validateStep() && currentStep < steps.length - 1) {

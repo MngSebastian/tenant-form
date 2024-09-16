@@ -40,7 +40,7 @@ function ProgressionSteps() {
                 ? isDarkMode
                   ? "font-semibold text-indigo-500" // Text color for dark mode when current step
                   : "font-semibold text-blue-500" // Text color for light mode when current step
-                : "font-medium text-gray-600" // Default text color for non-current steps
+                : "font-medium text-gray-500" // Default text color for non-current steps
             }
             
             `}
