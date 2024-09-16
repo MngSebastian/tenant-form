@@ -34,7 +34,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     let isValid = true;
     const newErrors: { [key: string]: string } = {};
 
-    steps.forEach((step, index) => {
+    steps.forEach((step) => {
       const field = step.name.toLowerCase();
       if (step.validation) {
         const error = step.validation(formData[field as keyof typeof formData]);
@@ -47,7 +47,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
 
     setErrors(newErrors);
     return isValid;
-  }, [formData]);
+  }, [formData, steps]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -98,22 +98,26 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   };
 
   const handleSubmit = useCallback(() => {
-    if (validateAllSteps()) {
+    const isValid = validateAllSteps();
+    if (isValid) {
       setIsSubmitted(true);
       navigate("/form/success");
       localStorage.removeItem(STORAGE_KEY);
       setFormData({ name: "", email: "", phone: "", income: "" });
       // setCurrentStep(0);
     } else {
-      // If validation fails, navigate to first step with an error
-      const firstErrorStep = steps.findIndex(
-        (step) => errors[step.name.toLowerCase()] !== undefined && errors[step.name.toLowerCase()] !== ""
-      );
-      if (firstErrorStep !== -1) {
-        goToStep(firstErrorStep);
-      }
+      // Ensure errors are up-to-date before navigating
+      setErrors((prevErrors) => {
+        const firstErrorStep = steps.findIndex(
+          (step) => prevErrors[step.name.toLowerCase()] !== undefined && prevErrors[step.name.toLowerCase()] !== ""
+        );
+        if (firstErrorStep !== -1) {
+          goToStep(firstErrorStep);
+        }
+        return prevErrors;
+      });
     }
-  }, [navigate, validateAllSteps, errors, goToStep]);
+  }, [navigate, validateAllSteps, steps, goToStep]);
 
   const handleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
