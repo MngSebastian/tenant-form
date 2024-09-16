@@ -10,11 +10,11 @@ function MainContent() {
   const { currentStep, steps, isSubmitted, isAnimating, isDarkMode } = useOnboarding();
 
   return (
-    <div className="flex-1 p-4 md:p-10">
+    <div className="flex-1 px-4 md:px-10 pt-8 md:pt-20 ">
       <div className="max-w-md mx-auto">
         {!isSubmitted ? (
           <div
-            className={`transition-all duration-300 border-2 w-full transform ${
+            className={`transition-all duration-300 w-full transform ${
               isAnimating ? "-translate-x-full opacity-0" : "-translate-x-0 opacity-100"
             }
             ${currentStep === steps.length - 1 ? "shadow-[0_0_10px_rgba(200,200,200,1)] rounded-lg p-4" : ""}`}
