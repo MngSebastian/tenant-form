@@ -30,7 +30,7 @@ Lucide React for icons
 
 **Routing** - you can go to any part of the form via url `/form/email`.  
 
-**All steps validation** - If you went straight to `/form/email` and continued to submit, you will be taken back to the first field that has a validation error and all others will be saved, problem is in this case submit must be clicked twice to work :(. I did not have time to look into it.  
+**All steps validation** - If you went straight to `/form/email` and continued to submit, you will be taken back to the first field that has a validation error and all others will be saved.  
 
 **Input fields Clear Icon** - Every Input field renders an `x` icon to clear the field when text has been entered.  
 
@@ -56,6 +56,8 @@ I would have liked to add `Tests` but I have to do another case study for anothe
 Better Validation, as already mentioned, the validation is very basic and ideally it would need more.  
 
 I would have liked to integrate Buena's design identity. I went to your website and I saw a modern, sleek yet creative design, initially, I was going to build something to fit right in with Buena's website/design but I decided to let my creativity work and see where it takes me.  
+
+### I really enjoyed working on this, thank you for the opportunity.
 
 
 
