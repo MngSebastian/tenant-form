@@ -22,7 +22,7 @@ Lucide React for icons
 
 ### `Features`
 
-**Dark mode** - this was unnecessary but I wanted to add it. There is a better way to do it in `tailwind.config.js` but it was a spontaneous decision and I went with a less cleaner approach.  
+**Dark mode** - this was unnecessary but I wanted to add it. There is a better way to do it in `tailwind.config.js` but it was a spontaneous decision.  
 
 **LocalStorage** - Form data and DarkMode are saved and do not get lost on refresh.  
 
