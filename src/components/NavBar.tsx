@@ -13,7 +13,7 @@ function NavBar() {
           onClick={handleDarkMode}
           className={`flex items-center justify-center border ${
             isDarkMode ? "border-gray-300" : "border-gray-800"
-          } rounded-full w-12 h-8`}
+          } rounded-full w-12 h-8 my-2`}
         >
           {isDarkMode ? (
             <Sun className="text-gray-300 hover:text-yellow-600" />
