@@ -11,9 +11,7 @@ import NotFound from "./components/NotFound";
 function App() {
   const { currentStep, steps, isDarkMode } = useOnboarding();
   return (
-    <div
-      className={`flex flex-col w-screen min-h-screen overflow-hidden ${isDarkMode ? "bg-slate-800" : "bg-gray-100"}`}
-    >
+    <div className={`flex flex-col w-screen h-screen overflow-hidden ${isDarkMode ? "bg-slate-800" : "bg-gray-100"}`}>
       <NavBar />
       <div className="flex flex-col md:flex-grow md:flex-row">
         <ProgressionBar />
