@@ -45,7 +45,7 @@ function ProgressionSteps() {
             
             `}
           >
-            {step.name}
+            {step.name.replace(/([A-Z])/g, " $1").trim()}
           </span>
         </div>
       ))}

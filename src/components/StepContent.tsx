@@ -41,7 +41,7 @@ function StepContent() {
               id={steps[currentStep].name.toLowerCase()}
               name={steps[currentStep].name.toLowerCase()}
               type={currentStep === 1 ? "email" : currentStep === 2 ? "tel" : "text"}
-              placeholder={`Enter your ${steps[currentStep].name.toLowerCase()}`}
+              placeholder={`Enter your ${steps[currentStep].name.replace(/([A-Z])/g, " $1").trim()}`}
               value={formData[steps[currentStep].name.toLowerCase() as keyof typeof formData]}
               onChange={handleInputChange}
               className={`mb-2 p-2 w-full rounded-lg  ${
