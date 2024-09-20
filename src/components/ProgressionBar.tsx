@@ -14,7 +14,7 @@ function ProgressionBar() {
           Onboarding Progress
         </h2>
         <div className="flex justify-center md:justify-start gap-6 md:gap-0 md:flex-col relative">
-          <div className="absolute left-30 top-5 md:left-6 md:top-4 w-[300px] h-px bg-gray-400 md:w-px md:h-[calc(100%-60px)]"></div>
+          <div className="absolute left-30 top-[1.4rem] md:left-6 md:top-4 w-[300px] h-px bg-gray-400 md:w-px md:h-[calc(100%-60px)]"></div>
           <ProgressionSteps />
         </div>
       </div>

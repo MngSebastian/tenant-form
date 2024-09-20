@@ -12,7 +12,7 @@ function ProgressionSteps() {
           <div className=" md:w-12 md:h-12 flex items-center justify-center">
             <div
               className={`
-              flex items-center justify-center rounded-full w-9 h-9 md:w-12 md:h-12
+              flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12
               ${
                 index === currentStep && !isSubmitted
                   ? isDarkMode
@@ -27,7 +27,7 @@ function ProgressionSteps() {
             `}
             >
               {index < currentStep || isSubmitted ? (
-                <CircleCheck className={`w-6 h-6 md:w-8 md:h-8 ${isDarkMode ? "text-green-600" : "text-green-500"}`} />
+                <CircleCheck className={`w-7 h-7 md:w-8 md:h-8 ${isDarkMode ? "text-green-600" : "text-green-500"}`} />
               ) : (
                 <span>{index + 1}</span>
               )}
