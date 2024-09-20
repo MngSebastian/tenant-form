@@ -7,7 +7,7 @@ function Summary() {
   return (
     <div className="mb-6 space-y-2">
       {Object.entries(formData).map(([key, value]) => (
-        <div key={key} className="flex gap-3">
+        <div key={key} className="flex gap-8">
           <span
             className={`${
               isDarkMode ? "text-gray-400" : "text-black"

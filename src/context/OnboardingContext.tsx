@@ -3,7 +3,7 @@ import steps from "../utils/steps";
 import OnboardingContextType from "../utils/OnboardingContextType";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const incomeOptions = ["0-1.000", "1.000-2.000", "2.000-3.000", "3.000-4.000", ">4.000"];
+// const incomeOptions = ["0-1.000", "1.000-2.000", "2.000-3.000", "3.000-4.000", ">4.000"];
 
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined);
 const STORAGE_KEY = "onboardingData";
@@ -18,9 +18,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved).formData : { firstname: "", lastname: "", email: "", phone: "", income: "" };
   });
-  {
-    console.log(formData);
-  }
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -164,7 +162,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         isDarkMode,
         errors,
         steps,
-        incomeOptions,
+        // incomeOptions,
         goToStep,
         handleInputChange,
         handleClearInput,

@@ -5,9 +5,10 @@ type OnboardingContextType = {
   steps: {
     name: string;
     question: string;
+    options?: string[];
     validation?: (value: string) => string;
   }[];
-  incomeOptions: string[];
+  // incomeOptions: string[];
   isSubmitted: boolean;
   isAnimating: boolean;
   isDarkMode: boolean;

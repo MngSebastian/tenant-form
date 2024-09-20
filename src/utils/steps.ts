@@ -49,6 +49,7 @@ const steps = [
   {
     name: "Income",
     question: "What's your income?",
+    options: ["0-1.000", "1.000-2.000", "2.000-3.000", "3.000-4.000", ">4.000"],
     validation: (value: string) => (value ? "" : "Please select income range."),
   },
   { name: "Summary", question: "Please review your information:" },

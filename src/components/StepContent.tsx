@@ -8,7 +8,6 @@ function StepContent() {
     steps,
     formData,
     errors,
-    incomeOptions,
     isDarkMode,
     handleInputChange,
     handleIncomeOptionChange,
@@ -19,7 +18,7 @@ function StepContent() {
     <div className="space-y-2">
       {steps[currentStep].name.toLowerCase() === "income" ? (
         <>
-          {incomeOptions.map((option) => (
+          {steps[currentStep].options?.map((option) => (
             <div key={option} className="flex items-center">
               <input
                 type="radio"
