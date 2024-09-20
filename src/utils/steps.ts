@@ -2,19 +2,44 @@ const steps = [
   {
     name: "FirstName",
     question: "What's your first name?",
-    validation: (value: string) => (value.length >= 2 ? "" : "Name must be at least 2 characters long."),
+    validation: (value: string) => {
+      if (!value.trim()) {
+        return "First name cannot be empty.";
+      }
+      if (value.length < 2) {
+        return "First Name must be at least 2 characters long.";
+      }
+      if (/[^a-zA-Z'-]/.test(value)) {
+        return "First name can only contain letters, apostrophes, or hyphens."; // Restricts invalid characters
+      }
+      return "";
+    },
   },
 
   {
     name: "LastName",
     question: "What's your last name?",
-    validation: (value: string) => (value.length >= 2 ? "" : "Name must be at least 2 characters long."),
+    validation: (value: string) => {
+      if (!value.trim()) {
+        return "Last name cannot be empty.";
+      }
+      if (value.length < 2) {
+        return "Last Name must be at least 2 characters long.";
+      }
+      if (/[^a-zA-Z'-]/.test(value)) {
+        return "Last name can only contain letters, apostrophes, or hyphens."; // Restricts invalid characters
+      }
+      return "";
+    },
   },
 
   {
     name: "Email",
     question: "What's your email address?",
-    validation: (value: string) => (/\S+@\S+\.\S+/.test(value) ? "" : "Please enter a valid email address."),
+    validation: (value: string) =>
+      /^(?!.*\.\.)(?!.*\.$)(?!.*@\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+        ? ""
+        : "Please enter a valid email address.",
   },
   {
     name: "Phone",
