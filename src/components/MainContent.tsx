@@ -19,7 +19,7 @@ function MainContent() {
             }
             ${currentStep === steps.length - 1 ? "shadow-[0_0_10px_rgba(200,200,200,1)] rounded-lg p-4" : ""}`}
           >
-            <h1 className={`text-3xl mb-3 ${isDarkMode ? "text-gray-100" : "text-black"}`}>
+            <h1 className={`text-3xl mb-6 ${isDarkMode ? "text-gray-100" : "text-black"}`}>
               {steps[currentStep].question}
             </h1>
             {currentStep < steps.length - 1 ? <StepContent /> : <Summary />}
