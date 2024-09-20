@@ -18,7 +18,7 @@ function StepContent() {
   return (
     <div className="space-y-2">
       {/* strictly equals 3 is not the best solution here incase something else is added or order steps changes */}
-      {currentStep === 3 ? (
+      {currentStep === 4 ? (
         <>
           {incomeOptions.map((option) => (
             <div key={option} className="flex items-center">
@@ -37,6 +37,7 @@ function StepContent() {
       ) : (
         <>
           <label htmlFor={steps[currentStep].name.toLowerCase()}></label>
+          {console.log(steps[currentStep].name.replace(/\s/g, "").toLowerCase())}
           <div className="relative">
             <input
               id={steps[currentStep].name.toLowerCase()}
@@ -53,6 +54,7 @@ function StepContent() {
               autoComplete="on"
               required
             />
+
             {formData[steps[currentStep].name.toLowerCase() as keyof typeof formData] && (
               <CircleX
                 onClick={handleClearInput}

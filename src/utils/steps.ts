@@ -1,9 +1,16 @@
 const steps = [
   {
-    name: "Name",
-    question: "What's your name?",
+    name: "FirstName",
+    question: "What's your first name?",
     validation: (value: string) => (value.length >= 2 ? "" : "Name must be at least 2 characters long."),
   },
+
+  {
+    name: "LastName",
+    question: "What's your last name?",
+    validation: (value: string) => (value.length >= 2 ? "" : "Name must be at least 2 characters long."),
+  },
+
   {
     name: "Email",
     question: "What's your email address?",

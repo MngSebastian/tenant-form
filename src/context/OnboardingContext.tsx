@@ -16,8 +16,11 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
 
   const [formData, setFormData] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved).formData : { name: "", email: "", phone: "", income: "" };
+    return saved ? JSON.parse(saved).formData : { firstname: "", lastname: "", email: "", phone: "", income: "" };
   });
+  {
+    console.log(formData);
+  }
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -35,7 +38,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     const newErrors: { [key: string]: string } = {};
 
     steps.forEach((step) => {
-      const field = step.name.toLowerCase();
+      const field = step.name.replace(/\s/g, "").toLowerCase(); // Converts "First Name" to "firstname"
       if (step.validation) {
         const error = step.validation(formData[field as keyof typeof formData]);
         if (error) {
@@ -62,7 +65,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   };
 
   const validateStep = () => {
-    const currentField = steps[currentStep].name.toLowerCase();
+    const currentField = steps[currentStep].name.replace(/\s/g, "").toLowerCase(); // Converts "First Name" to "firstname"
     const validationFunction = steps[currentStep].validation;
     if (validationFunction) {
       const error = validationFunction(formData[currentField as keyof typeof formData]);
@@ -103,7 +106,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       setIsSubmitted(true);
       navigate("/form/success");
       localStorage.removeItem(STORAGE_KEY);
-      setFormData({ name: "", email: "", phone: "", income: "" });
+      setFormData({ firstname: "", lastname: "", email: "", phone: "", income: "" });
       // setCurrentStep(0);
     } else {
       // Ensure errors are up-to-date before navigating

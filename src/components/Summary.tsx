@@ -3,6 +3,7 @@ import { useOnboarding } from "../context/OnboardingContext";
 
 function Summary() {
   const { formData, isDarkMode } = useOnboarding();
+
   return (
     <div className="mb-6 space-y-2">
       {Object.entries(formData).map(([key, value]) => (
