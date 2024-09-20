@@ -38,7 +38,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
     const newErrors: { [key: string]: string } = {};
 
     steps.forEach((step) => {
-      const field = step.name.replace(/\s/g, "").toLowerCase(); // Converts "First Name" to "firstname"
+      const field = step.name.toLowerCase();
       if (step.validation) {
         const error = step.validation(formData[field as keyof typeof formData]);
         if (error) {
@@ -65,7 +65,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
   };
 
   const validateStep = () => {
-    const currentField = steps[currentStep].name.replace(/\s/g, "").toLowerCase(); // Converts "First Name" to "firstname"
+    const currentField = steps[currentStep].name.toLowerCase();
     const validationFunction = steps[currentStep].validation;
     if (validationFunction) {
       const error = validationFunction(formData[currentField as keyof typeof formData]);

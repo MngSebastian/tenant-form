@@ -17,8 +17,7 @@ function StepContent() {
 
   return (
     <div className="space-y-2">
-      {/* strictly equals 3 is not the best solution here incase something else is added or order steps changes */}
-      {currentStep === 4 ? (
+      {steps[currentStep].name.toLowerCase() === "income" ? (
         <>
           {incomeOptions.map((option) => (
             <div key={option} className="flex items-center">
@@ -37,7 +36,6 @@ function StepContent() {
       ) : (
         <>
           <label htmlFor={steps[currentStep].name.toLowerCase()}></label>
-          {console.log(steps[currentStep].name.replace(/\s/g, "").toLowerCase())}
           <div className="relative">
             <input
               id={steps[currentStep].name.toLowerCase()}
